@@ -1,0 +1,13 @@
+from PyQt5 import QtWidgets, uic
+
+class ChatRoomApp(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(ChatRoomApp, self).__init__()
+        uic.loadUi('chatroom.ui', self)
+        self.show()
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    window = ChatRoomApp()
+    sys.exit(app.exec_())

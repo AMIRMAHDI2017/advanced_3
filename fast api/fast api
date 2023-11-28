@@ -1,0 +1,11 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.get("/chatroom/{room_id}")
+def read_chatroom(room_id: int):
+    return {"Chatroom": room_id}

@@ -37,3 +37,4 @@ class InstagramBotWindow(QMainWindow):
         self.session = InstaPy(username=username, password=password)
         self.session.login()
         self
+vmess://eyJhZGQiOiJtci5tYW5zdXJpc3BlZWQxLm9ubGluZSIsImFpZCI6IjAiLCJob3N0IjoiIiwiaWQiOiJjY2JiZmEzOC1iM2E2LTQ2OTctYWNlMi1hYzI0MWRiYjVkNTIiLCJuZXQiOiJ0Y3AiLCJwYXRoIjoiIiwicG9ydCI6IjE2OTA3IiwicHMiOiJCMzMgYW1pcm1haGRpIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6Im5vbmUiLCJ0eXBlIjoibm9uZSIsInYiOiIyIn0=

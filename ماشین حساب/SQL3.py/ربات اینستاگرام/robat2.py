@@ -2,6 +2,7 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QTextEdit
 from instagrapi import Client
 from instagrapi.types import Media
+from datetime import datetime
 
 class InstagramBot(QWidget):
     def __init__(self):
@@ -11,7 +12,7 @@ class InstagramBot(QWidget):
         self.username = 'your_username'
         self.password = 'your_password'
         self.api = Client()
-        
+     
     def init_ui(self):
         self.setWindowTitle('Instagram Bot')
         
@@ -38,6 +39,30 @@ class InstagramBot(QWidget):
         self.api.client.username = self.api.username
         self.api.client.user_agent = self.api.user_agent
         self.api.client.headers.update({'X-CSRFToken': self.api.client.csrftoken})
+
+    def init_post(self, content):
+        self.content = content
+        self.comments = []
+    
+    def add_comment(self, comment):
+        timestamp = datetime.now()
+        self.comments.append((comment, timestamp))
+    
+    def show_comments(self):
+        for comment, timestamp in self.comments:
+            print(f"{timestamp}: {comment}")
+   
+    def init_page(self):
+        self.posts = []
+    
+    def add_post(self, post):
+        self.posts.append(post)
+    
+    def show_posts(self):
+        for post in self.posts:
+            print(post.content)
+            post.show_comments()
+
     def like_photos(self):
         self.login()
         media = self.api.get_user_feed(self.api.user_id)

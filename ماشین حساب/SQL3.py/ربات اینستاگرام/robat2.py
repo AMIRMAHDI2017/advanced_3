@@ -1,7 +1,7 @@
 
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QTextEdit
 from instagrapi import Client
-from instagrapi.types import MediaTypes
+from instagrapi.types import Media
 
 class InstagramBot(QWidget):
     def __init__(self):
@@ -39,7 +39,7 @@ class InstagramBot(QWidget):
         media = self.api.get_user_feed(self.api.user_id)
         for m in media:
             if m.like_count < 10:  # لایک فقط برای عکس هایی که کمتر از 10 لایک دارند
-                self.api.like(m.pk, MediaTypes.PHOTO)
+                self.api.like(m.pk, Media.pk)
         
     def get_messages(self):
         self.login()

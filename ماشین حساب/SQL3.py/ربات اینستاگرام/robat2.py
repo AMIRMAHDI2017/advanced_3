@@ -16,7 +16,7 @@ class InstagramBot(QWidget):
         self.setWindowTitle('Instagram Bot')
         
         layout = QVBoxLayout()
-        
+
         self.like_button = QPushButton('Like', self)
         self.like_button.clicked.connect(self.like_photos)
         
@@ -32,8 +32,12 @@ class InstagramBot(QWidget):
         self.setLayout(layout)
         
     def login(self):
-        self.api.login(self.username, self.password)
-        
+        self.api.login(self.username, self.password)  
+        self.api.client.user_session_id = self.api.cookie_dict['sessionid']
+        self.api.client.user_id = self.api.user_id
+        self.api.client.username = self.api.username
+        self.api.client.user_agent = self.api.user_agent
+        self.api.client.headers.update({'X-CSRFToken': self.api.client.csrftoken})
     def like_photos(self):
         self.login()
         media = self.api.get_user_feed(self.api.user_id)

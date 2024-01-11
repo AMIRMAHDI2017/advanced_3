@@ -21,8 +21,12 @@ class InstagramBot(QWidget):
         self.like_button = QPushButton('Like', self)
         self.like_button.clicked.connect(self.like_photos)
         
+        button.setGeometry(0, 0, 10, 10)
+
         self.comment_button = QPushButton('comment', self)
         self.comment_button.clicked.connect(self.comment)
+
+        button.setGeometry(0, 50, 10, 10)
 
         self.messages_label = QLabel('Messages:')
         
